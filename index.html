@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار التربية والتنمية المستدامة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- شاشة البداية -->
+        <div id="startScreen" class="screen active">
+            <div class="start-content">
+                <h1>اختبار شامل</h1>
+                <h2>التربية من أجل التنمية المستدامة</h2>
+                <p class="info">70 سؤال | 3 فصول</p>
+                <button onclick="startExam()" class="btn btn-primary">ابدأ الاختبار</button>
+            </div>
+        </div>
+
+        <!-- شاشة الاختبار -->
+        <div id="examScreen" class="screen">
+            <div class="exam-header">
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="question-counter">السؤال <span id="questionNumber">1</span> من 70</p>
+            </div>
+
+            <div class="exam-content">
+                <h3 id="questionText" class="question"></h3>
+                
+                <div id="optionsContainer" class="options-container">
+                    <!-- ستتم إضافة الخيارات هنا -->
+                </div>
+
+                <div id="feedbackContainer" class="feedback" style="display: none;">
+                    <div id="feedbackContent"></div>
+                    <button onclick="nextQuestion()" class="btn btn-next">السؤال التالي</button>
+                </div>
+
+                <div id="noFeedbackContainer" style="display: none;">
+                    <button onclick="submitAnswer()" class="btn btn-submit">تأكيد الإجابة</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة النتائج -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-content">
+                <h1>انتهى الاختبار!</h1>
+                <div class="score-circle">
+                    <span class="score-number" id="scoreNumber">0</span>
+                    <span class="score-text">من 70</span>
+                </div>
+                <p class="score-percentage" id="scorePercentage">0%</p>
+                <p class="score-message" id="scoreMessage"></p>
+
+                <div class="results-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">إجابات صحيحة</span>
+                        <span class="summary-value correct" id="correctCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">إجابات خاطئة</span>
+                        <span class="summary-value wrong" id="wrongCount">0</span>
+                    </div>
+                </div>
+
+                <div class="review-section">
+                    <h3>مراجعة الأسئلة</h3>
+                    <div id="reviewContainer"></div>
+                </div>
+
+                <button onclick="location.reload()" class="btn btn-primary">اختبر مرة أخرى</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
